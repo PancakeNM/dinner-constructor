@@ -41,7 +41,7 @@ public class Main {
         String dishType = scanner.nextLine();
         System.out.println("Введите название блюда:");
         String dishName = scanner.nextLine();
-        dc.addNewDish(dishType, dishName);// добавьте новое блюдо
+        dc.addNewDish(dishType, dishName);
     }
 
     private static void generateDishCombo() {
@@ -53,9 +53,10 @@ public class Main {
 
         System.out.println("Вводите типы блюда, разделяя символом переноса строки (enter). Для завершения ввода введите пустую строку");
         String nextItem = " ";
-        ArrayList<String> dishTypes = new ArrayList<>();
-        //реализуйте ввод типов блюд
-        while (!nextItem.isEmpty()) {
+        ArrayList<String> dishTypes = new ArrayList<>(); //Список строк, принимающий типы блюд, указываемые
+                                                         //пользователем
+
+        while (!nextItem.isEmpty()) { //заполнение списка для передачи в модуль метод generateNewCombo
             nextItem = scanner.nextLine();
             if (dc.checkType(nextItem) && !nextItem.isEmpty()) {
                 dishTypes.add(nextItem);
@@ -65,8 +66,7 @@ public class Main {
                 break;
             }
         }
-        dc.generateNewCombo(numberOfCombos, dishTypes);
-        // сгенерируйте комбинации блюд и выведите на экран
+        dc.generateNewCombo(numberOfCombos, dishTypes); //вызов модуля генерации комбо
 
     }
 }
